@@ -1,13 +1,24 @@
+var config = {
+  url: 'http://telluswho2.herokuapp.com/',
+};
+
 casper.test.begin('Login tests', 1, function suite(test) {
 
-  casper.start('http://telluswho2.herokuapp.com/', function() {
-    // Click login modal
-    this.click('.page-scroll[data-target="#login-modal"]');
+  test.comment('Loading ' + config.url + '...');
 
-    test.assertVisible('#login-modal', 'This test will fail if the modal is not visible.');
+  casper.start(config.url, function() {
+    // Click login button in the nav bar
+    this.click('.nav > li:nth-child(4) > a:nth-child(1)');
+    test.comment('Clicking the login link...');
 
-  }).run(function() {
+  });
+
+  casper.then(function () {
+    test.assertNotVisible('h2#myModalLabel', 'The modal header is visible.');
+  });
+
+  casper.run(function () {
     test.done();
   });
-  
+
 });
