@@ -8,8 +8,6 @@ var config = {
   url: 'http://telluswho2.herokuapp.com/',
 };
 
-var title;
-
 casper.start(config.url);
 
 casper.then(function() {
@@ -18,11 +16,12 @@ casper.then(function() {
 });
 
 casper.run(function() {
-  title = this.getTitle();
+  njitTitle = "New Jersey Institute of Technology";
   
-	if(title = "New ") {
-		
-	}
-
+  if(njitTitle = this.getTitle()) {
+  	console.log("'Visit TellUsWho2 Research Page' link goes to njit's website. TEST PASSED!");
+  } else {
+  	console.log("'Visit TellUsWho2 Research Page' link DOES NOT go to njit's website. TEST FAILED.");
+  }
   this.exit();
 });
