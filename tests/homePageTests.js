@@ -1,5 +1,5 @@
 var config = {
-  url: 'http://telluswho2.herokuapp.com/',
+  url: 'http://192.168.1.7:5000/',
 };
 
 casper.test.begin('Home page tests', 6, function suite(test) {
@@ -11,7 +11,7 @@ casper.test.begin('Home page tests', 6, function suite(test) {
     test.assertElementCount('ul.navbar-nav', 1);
     test.assertSelectorHasText('a.navbar-brand', 'TellUsWho2');
     test.assertExists('h1.brand-heading', 'TellUsWho2 brand heading exists');
-    test.assertVisible('footer');
+    test.assertVisible('footer', 'Footer is visible.');
 
   }).run(function() {
     test.done();

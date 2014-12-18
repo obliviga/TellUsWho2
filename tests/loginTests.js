@@ -1,5 +1,5 @@
 var config = {
-  url: 'http://telluswho2.herokuapp.com/',
+  url: 'http://192.168.1.7:5000/',
 };
 
 casper.test.begin('Login tests', 1, function suite(test) {
@@ -14,7 +14,7 @@ casper.test.begin('Login tests', 1, function suite(test) {
   });
 
   casper.then(function () {
-    test.assertNotVisible('h2#myModalLabel', 'The modal header is visible.');
+    test.assertVisible('h2#myModalLabel', 'The modal header is visible.');
   });
 
   casper.run(function () {
