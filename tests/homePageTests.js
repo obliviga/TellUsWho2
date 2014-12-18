@@ -1,5 +1,5 @@
 var config = {
-  url: 'http://192.168.1.7:5000/',
+  url: 'http://telluswho2.herokuapp.com/',
 };
 
 casper.test.begin('Home page tests', 6, function suite(test) {

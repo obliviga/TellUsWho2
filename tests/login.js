@@ -11,7 +11,7 @@ var casper = require('casper').create({
 
 // Defining config object
 var config = {
-  url: 'http://192.168.1.7:5000/',
+  url: 'http://telluswho2.herokuapp.com/',
 };
 
 casper.start(config.url);
