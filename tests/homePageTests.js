@@ -18,21 +18,3 @@ casper.test.begin('Home page tests', 6, function suite(test) {
   });
 
 });
-
-
-casper.test.begin('Test if research page links to NJIT\'s homepage', 1, function suite(test) {
-
-  casper.start(config.url, function() {
-
-    this.click('a.btn-lg:nth-child(3)');
-    test.comment('Clicking the login link...');
-
-    casper.then(function () {
-      test.assertTitleMatch(/New Jersey Institute of Technology/, "NJIT's homepage title is the one expected");
-    });
-
-  }).run(function() {
-    test.done();
-  });
-
-});
