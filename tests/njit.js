@@ -11,11 +11,13 @@ var config = {
 casper.start(config.url);
 
 casper.then(function() {
-  console.log(this.getCurrentUrl());
+  console.log("Current page: " + this.getCurrentUrl());
   this.click('a.btn-lg:nth-child(3)');
+  console.log("Button was just clicked.")
 });
 
 casper.run(function() {
+  console.log("Current page: " + this.getCurrentUrl());
   njitTitle = "New Jersey Institute of Technology";
   
   if(njitTitle = this.getTitle()) {

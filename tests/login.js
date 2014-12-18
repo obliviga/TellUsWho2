@@ -9,6 +9,7 @@ var casper = require('casper').create({
   logLevel: "debug"
 });
 
+// Defining config object
 var config = {
   url: 'http://192.168.1.7:5000/',
 };
@@ -16,19 +17,26 @@ var config = {
 casper.start(config.url);
 
 casper.then(function() {
+
+  // Clicks Login button
   this.click('.nav > li:nth-child(4) > a:nth-child(1)');
+
+  // Waits one second for modal to load.
   casper.wait(1000);
-  // this.click('#page-top > nav > div > div.navbar-collapse.navbar-right.navbar-main-collapse.collapse.in > ul > li:nth-child(4)');
+
+});
+
+casper.then(function() {
+
+  // Tests if the modal is visible or not.
+  if (this.visible('.modal-content')) {
+      this.echo("I can see the modal. TEST PASSED!");
+  } else {
+      this.echo("I can't see the modal. TEST FAILED.");
+  }
 
 });
 
 casper.run(function() {
-
-  if (this.visible('.modal-content')) {
-      this.echo("I can see the modal");
-  } else {
-      this.echo("I can't see the modal");
-  }
-
   this.exit();
 });
